@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For Mani ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #fff0f5;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            max-width: 420px;
+            position: relative;
+        }
+
+        .photo {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #e75480;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #444;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            position: relative;
+            height: 80px;
+        }
+
+        button {
+            padding: 12px 28px;
+            font-size: 17px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #yesBtn {
+            background-color: #e75480;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #e0e0e0;
+            color: #333;
+            position: absolute;
+            left: 220px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="photo.jpg" class="photo" alt="Us">
+
+        <h1>Mani ❤️</h1>
+
+        <p>
+            Will you be my valentine?
+        </p>
+
+        <div class="buttons">
+            <button id="yesBtn" onclick="yesClicked()">Yes</button>
+            <button id="noBtn" onmouseover="moveNo()">No</button>
+        </div>
+    </div>
+
+    <script>
+        let moveCount = 0;
+
+        function moveNo() {
+            const noBtn = document.getElementById("noBtn");
+            const container = document.querySelector(".buttons");
+
+            const maxX = container.offsetWidth - noBtn.offsetWidth;
+            const maxY = container.offsetHeight - noBtn.offsetHeight;
+
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
+
+            moveCount++;
+
+            // After 6 tries, remove the No button completely 😏
+            if (moveCount > 6) {
+                noBtn.style.display = "none";
+            }
+        }
+
+        function yesClicked() {
+            document.body.innerHTML = `
+                <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#fff0f5;font-family:Arial;text-align:center;">
+                    <div style="background:white;padding:50px;border-radius:20px;box-shadow:0 8px 20px rgba(0,0,0,0.08);max-width:400px;">
+                        <h1 style="color:#e75480;">I’m the happiest ❤️</h1>
+                        <p style="font-size:20px;color:#444;line-height:1.6;">
+                            Be my valentine forever.<br><br>
+                            — Exactamundo
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+
+</body>
+</html>
